@@ -38,7 +38,7 @@ export default function Footer({ onOpenBooking }) {
             <div className="space-y-1.5 font-sans text-xs text-[#1A1918]">
               <div className="flex items-center gap-2">
                 <MapPin className="w-3.5 h-3.5 text-[#8F7238] flex-shrink-0" />
-                <span>D-Block, South Extension Part-2, New Delhi 110049</span>
+                <span>Main Road, Dhantoli, Nagpur, Maharashtra</span>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-3.5 h-3.5 text-[#8F7238] flex-shrink-0" />

@@ -1,23 +1,21 @@
 import React from 'react';
 
-// Crisp, authentic SVG vectors for Ray-Ban, Oakley, Meta, Tommy Hilfiger
 export default function BrandGrid() {
   return (
-    <section id="brands" className="py-16 sm:py-20 px-4 sm:px-8 md:px-12 bg-[#FDFBF7] border-t border-black/5">
+    <section id="brands" className="py-20 px-4 sm:px-8 md:px-12 bg-[#FAF8F5] border-t border-black/5">
       <div className="max-w-6xl mx-auto">
         
         {/* Clean Luxury Brand Logo Grid - No title/subtitle */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-10 items-center justify-items-center">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 items-center justify-items-center">
           
           {/* 1. Ray-Ban */}
-          <div className="w-full h-24 sm:h-28 rounded-2xl glass-panel-light border border-black/5 flex items-center justify-center p-6 hover:border-[#B89758]/40 hover:shadow-sm transition-all duration-300 group">
+          <div className="w-full h-28 sm:h-32 rounded-3xl glass-card-luxury flex items-center justify-center p-6 group">
             <svg
-              className="w-32 sm:w-36 h-auto text-[#1A1918] group-hover:text-[#8F7238] transition-colors"
+              className="w-32 sm:w-36 h-auto text-[#141413] group-hover:text-[#8F7238] transition-colors duration-300"
               viewBox="0 0 200 80"
               fill="currentColor"
               xmlns="http://www.w3.org/2000/svg"
             >
-              {/* Ray-Ban Script Wordmark Vector */}
               <text
                 x="10"
                 y="55"
@@ -40,14 +38,13 @@ export default function BrandGrid() {
           </div>
 
           {/* 2. Oakley */}
-          <div className="w-full h-24 sm:h-28 rounded-2xl glass-panel-light border border-black/5 flex items-center justify-center p-6 hover:border-[#B89758]/40 hover:shadow-sm transition-all duration-300 group">
+          <div className="w-full h-28 sm:h-32 rounded-3xl glass-card-luxury flex items-center justify-center p-6 group">
             <svg
-              className="w-32 sm:w-36 h-auto text-[#1A1918] group-hover:text-[#8F7238] transition-colors"
+              className="w-32 sm:w-36 h-auto text-[#141413] group-hover:text-[#8F7238] transition-colors duration-300"
               viewBox="0 0 200 80"
               fill="currentColor"
               xmlns="http://www.w3.org/2000/svg"
             >
-              {/* Oakley Oval Icon + Wordmark */}
               <ellipse cx="40" cy="40" rx="22" ry="14" fill="none" stroke="currentColor" strokeWidth="6" />
               <ellipse cx="40" cy="40" rx="10" ry="6" fill="currentColor" />
               <text
@@ -64,14 +61,13 @@ export default function BrandGrid() {
           </div>
 
           {/* 3. Meta (Ray-Ban Meta) */}
-          <div className="w-full h-24 sm:h-28 rounded-2xl glass-panel-light border border-black/5 flex items-center justify-center p-6 hover:border-[#B89758]/40 hover:shadow-sm transition-all duration-300 group">
+          <div className="w-full h-28 sm:h-32 rounded-3xl glass-card-luxury flex items-center justify-center p-6 group">
             <svg
-              className="w-32 sm:w-36 h-auto text-[#1A1918] group-hover:text-[#8F7238] transition-colors"
+              className="w-32 sm:w-36 h-auto text-[#141413] group-hover:text-[#8F7238] transition-colors duration-300"
               viewBox="0 0 200 80"
               fill="currentColor"
               xmlns="http://www.w3.org/2000/svg"
             >
-              {/* Meta Infinity Loop + Typography */}
               <path
                 d="M32 28 C24 28 16 35 16 43 C16 51 23 57 30 57 C37 57 43 51 49 44 L53 39 C59 32 65 28 72 28 C79 28 86 34 86 43 C86 52 79 57 71 57 C64 57 58 52 52 45 L48 40 C43 33 37 28 32 28 Z"
                 fill="none"
@@ -93,14 +89,13 @@ export default function BrandGrid() {
           </div>
 
           {/* 4. Tommy Hilfiger */}
-          <div className="w-full h-24 sm:h-28 rounded-2xl glass-panel-light border border-black/5 flex items-center justify-center p-6 hover:border-[#B89758]/40 hover:shadow-sm transition-all duration-300 group">
+          <div className="w-full h-28 sm:h-32 rounded-3xl glass-card-luxury flex items-center justify-center p-6 group">
             <svg
-              className="w-36 sm:w-40 h-auto text-[#1A1918] group-hover:text-[#8F7238] transition-colors"
+              className="w-36 sm:w-40 h-auto text-[#141413] group-hover:text-[#8F7238] transition-colors duration-300"
               viewBox="0 0 220 80"
               fill="currentColor"
               xmlns="http://www.w3.org/2000/svg"
             >
-              {/* Tommy Hilfiger Flag Block + Serif */}
               <rect x="25" y="16" width="30" height="9" fill="#00174F" />
               <rect x="25" y="25" width="15" height="10" fill="#FFFFFF" stroke="#00174F" strokeWidth="0.5" />
               <rect x="40" y="25" width="15" height="10" fill="#CC0000" />

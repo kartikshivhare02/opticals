@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import { X, Calendar, Clock, MapPin, Sparkles, Check, User, Mail, Phone } from 'lucide-react';
 
 const STORE_LOCATIONS = [
-  { id: 'delhi-south', name: 'South Extension Flagship', area: 'D-Block, South Extension 2, New Delhi' },
-  { id: 'delhi-west', name: 'Rajouri Garden Studio', area: 'Main Market, West Delhi' },
-  { id: 'noida', name: 'Noida Sector 18 Store', area: 'Near Metro Station, Noida NCR' },
-  { id: 'home', name: 'Home Eye Test & Frame Trial', area: 'At Your Doorstep (Delhi NCR)' },
+  { id: 'nagpur-dhantoli', name: 'Dhantoli Flagship Store', area: 'Main Road, Dhantoli, Nagpur' },
+  { id: 'nagpur-sadar', name: 'Sadar Eyewear Studio', area: 'Residency Road, Sadar, Nagpur' },
+  { id: 'home', name: 'Home Eye Test & Frame Trial', area: 'At Your Doorstep (Nagpur & Vidarbha)' },
 ];
 
 export default function VipFittingModal({ isOpen, onClose, initialData }) {

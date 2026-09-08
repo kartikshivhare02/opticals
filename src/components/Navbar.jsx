@@ -61,7 +61,7 @@ export default function Navbar({ onOpenBooking }) {
               <span className="w-1.5 h-1.5 rounded-full bg-[#B89758]" />
             </div>
             <span className="font-sans text-[8px] sm:text-[9px] tracking-[0.18em] text-[#8F7238] uppercase font-medium">
-              Premium Eyewear • South Delhi
+              Premium Eyewear • Dhantoli, Nagpur
             </span>
           </a>
 
@@ -103,7 +103,7 @@ export default function Navbar({ onOpenBooking }) {
               <span className="font-display text-xs font-bold tracking-[0.2em] text-[#1A1918] uppercase block">
                 Jasleen Opticals
               </span>
-              <span className="text-[9px] text-[#736E65]">South Extension Part-2, New Delhi</span>
+              <span className="text-[9px] text-[#736E65]">Dhantoli, New Delhi</span>
             </div>
           </div>
 
