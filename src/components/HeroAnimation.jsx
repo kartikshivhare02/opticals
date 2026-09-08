@@ -19,7 +19,7 @@ export default function HeroAnimation({ onOpenBooking }) {
   const renderFrame = useCallback((index) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const ctx = canvas.getContext('2d', { alpha: false });
+    const ctx = canvas.getContext('2d', { alpha: true });
     if (!ctx) return;
 
     const safeIndex = Math.max(0, Math.min(TOTAL_FRAMES - 1, Math.round(index)));
@@ -43,6 +43,9 @@ export default function HeroAnimation({ onOpenBooking }) {
     const imgW = img.naturalWidth || 720;
     const imgH = img.naturalHeight || 1280;
 
+    ctx.fillStyle = '#FAF8F5';
+    ctx.fillRect(0, 0, width, height);
+
     // Scale to fill and center
     const scale = Math.max(width / imgW, height / imgH);
     const renderW = imgW * scale;
@@ -50,8 +53,6 @@ export default function HeroAnimation({ onOpenBooking }) {
     const renderX = (width - renderW) / 2;
     const renderY = (height - renderH) / 2;
 
-    ctx.fillStyle = '#FDFBF7';
-    ctx.fillRect(0, 0, width, height);
     ctx.drawImage(img, 0, 0, imgW, imgH, renderX, renderY, renderW, renderH);
   }, []);
 
@@ -117,26 +118,43 @@ export default function HeroAnimation({ onOpenBooking }) {
     };
   }, { scope: containerRef, dependencies: [renderFrame] });
 
+  // Starting frame street photo opacity: 1 at 0% scroll, smoothly crossfades out by ~7% scroll to reveal real 3D frames
+  const startPhotoOpacity = Math.max(0, 1 - scrollProgress * 14);
+
   return (
     <section
       ref={containerRef}
-      className="relative w-full h-[100svh] overflow-hidden bg-[#FDFBF7] select-none"
+      className="relative w-full h-[100svh] overflow-hidden bg-[#FAF8F5] select-none"
     >
-      {/* Subtle Background Architectural Grid Lines */}
-      <div className="absolute inset-0 pointer-events-none z-10 flex justify-between px-6 sm:px-12 opacity-25">
-        <div className="w-[1px] h-full bg-gradient-to-b from-transparent via-[#B89758]/40 to-transparent" />
-        <div className="hidden md:block w-[1px] h-full bg-gradient-to-b from-transparent via-stone-300 to-transparent" />
-        <div className="w-[1px] h-full bg-gradient-to-b from-transparent via-[#B89758]/40 to-transparent" />
-      </div>
-
-      {/* Primary HTML5 Canvas Renderer */}
+      {/* 1. Primary 240-Frame Canvas Layer (Crystal Clear Real Frames) */}
       <canvas
         ref={canvasRef}
         className="w-full h-full object-cover block relative z-0"
         style={{ width: '100%', height: '100%' }}
       />
 
-      {/* Scroll-Synced Floating Typography */}
+      {/* 2. Initial Starting Frame (Street Photo) - Crossfades into the Real 3D Frame Sequence on Scroll */}
+      <div
+        className="absolute inset-0 z-10 pointer-events-none transition-opacity duration-300 ease-out overflow-hidden"
+        style={{ opacity: startPhotoOpacity }}
+      >
+        <img
+          src="/hero-street-bg.png"
+          alt="Jasleen Opticals Nagpur Atelier"
+          className="w-full h-full object-cover object-center transform scale-105 filter brightness-105 contrast-95"
+        />
+        {/* Soft Ambient Light Gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#FAF8F5]/40 via-transparent to-[#FAF8F5]/85" />
+      </div>
+
+      {/* 3. Subtle Background Architectural Lines */}
+      <div className="absolute inset-0 pointer-events-none z-15 flex justify-between px-6 sm:px-12 opacity-20">
+        <div className="w-[1px] h-full bg-gradient-to-b from-transparent via-[#B89758]/40 to-transparent" />
+        <div className="hidden md:block w-[1px] h-full bg-gradient-to-b from-transparent via-stone-300 to-transparent" />
+        <div className="w-[1px] h-full bg-gradient-to-b from-transparent via-[#B89758]/40 to-transparent" />
+      </div>
+
+      {/* 4. Scroll-Synced Floating Typography */}
       <HeroOverlayText
         scrollProgress={scrollProgress}
         onOpenBooking={onOpenBooking}

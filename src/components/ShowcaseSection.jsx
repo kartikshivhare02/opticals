@@ -228,18 +228,18 @@ export default function ShowcaseSection({ onOpenBooking }) {
               </div>
 
               {/* Price & Action CTA */}
-              <div className="flex items-center justify-between pt-4 border-t border-black/5">
-                <div>
-                  <div className="flex items-baseline gap-2">
-                    <span className="font-sans text-xl font-bold text-[#141413]">{piece.price}</span>
-                    <span className="font-sans text-xs text-[#9E9A91] line-through">{piece.originalPrice}</span>
+              <div className="flex items-center justify-between pt-3.5 border-t border-black/5 gap-2">
+                <div className="flex flex-col">
+                  <div className="flex items-baseline gap-1.5">
+                    <span className="font-sans text-lg sm:text-xl font-bold text-[#141413]">{piece.price}</span>
+                    <span className="font-sans text-[11px] text-[#9E9A91] line-through">{piece.originalPrice}</span>
                   </div>
-                  <span className="font-sans text-[9px] text-[#059669] font-bold block">Inclusive of all taxes</span>
+                  <span className="font-sans text-[9px] text-[#059669] font-bold block">Incl. all taxes</span>
                 </div>
 
                 <button
                   onClick={() => onOpenBooking({ piece: piece.title, price: piece.price })}
-                  className="px-4 py-2 rounded-full bg-[#141413] hover:bg-[#8F7238] text-[#FAF8F5] font-sans text-xs font-semibold uppercase tracking-wider transition-all duration-300 flex items-center gap-1 shadow-sm group-hover:shadow-md active:scale-95"
+                  className="px-3.5 sm:px-4 py-2 rounded-full bg-[#141413] hover:bg-[#8F7238] text-[#FAF8F5] font-sans text-[11px] sm:text-xs font-semibold uppercase tracking-wider transition-all duration-300 flex items-center gap-1 shadow-sm active:scale-95 flex-shrink-0"
                   aria-label="Book frame trial"
                 >
                   <span>Book Trial</span>

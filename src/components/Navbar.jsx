@@ -17,17 +17,17 @@ export default function Navbar({ onOpenBooking }) {
 
   return (
     <>
-      <header className="fixed top-4 sm:top-6 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
+      <header className="fixed top-3 sm:top-6 left-0 right-0 z-50 flex justify-center px-3 sm:px-6 pointer-events-none">
         <nav
-          className={`pointer-events-auto flex items-center justify-between w-full max-w-4xl px-4 sm:px-6 py-2.5 rounded-full transition-all duration-400 ease-out bg-white/90 backdrop-blur-xl border border-black/8 shadow-md ${
-            isScrolled ? 'shadow-lg border-[#C5A059]/30 scale-[0.98]' : ''
+          className={`pointer-events-auto flex items-center justify-between w-full max-w-4xl px-3 sm:px-6 py-2 sm:py-2.5 rounded-full transition-all duration-300 ease-out bg-white/95 backdrop-blur-xl border border-black/10 shadow-lg ${
+            isScrolled ? 'border-[#C5A059]/40 shadow-xl scale-[0.98]' : ''
           }`}
         >
-          {/* 1. Menu Icon (Left) */}
-          <div className="flex items-center">
+          {/* 1. Menu Button (Left) */}
+          <div className="flex items-center flex-shrink-0">
             <button
               onClick={() => setMobileMenuOpen(true)}
-              className="p-2 rounded-full hover:bg-black/5 text-[#141413] transition-colors flex items-center gap-1.5"
+              className="p-1.5 sm:p-2 rounded-full hover:bg-black/5 text-[#141413] transition-colors flex items-center gap-1"
               aria-label="Open menu"
             >
               <Menu className="w-4 h-4 text-[#141413]" />
@@ -37,22 +37,22 @@ export default function Navbar({ onOpenBooking }) {
             </button>
           </div>
 
-          {/* 2. Jasleen Opticals (Center - Clean & Aesthetic) */}
-          <a href="#" className="flex items-center gap-2 group text-center">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059]" />
-            <span className="font-serif text-sm sm:text-base font-semibold tracking-[0.2em] text-[#141413] uppercase group-hover:text-[#8F7238] transition-colors whitespace-nowrap">
+          {/* 2. Jasleen Opticals (Center - Perfectly Fitted for Mobile) */}
+          <a href="#" className="flex items-center gap-1.5 sm:gap-2 group text-center px-1 overflow-hidden">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059] flex-shrink-0" />
+            <span className="font-serif text-xs sm:text-base font-bold tracking-[0.14em] sm:tracking-[0.2em] text-[#141413] uppercase group-hover:text-[#8F7238] transition-colors truncate">
               Jasleen Opticals
             </span>
-            <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059] flex-shrink-0" />
           </a>
 
-          {/* 3. Book Button (Right) */}
-          <div className="flex items-center">
+          {/* 3. Book Button (Right - Compact & 100% Mobile Safe) */}
+          <div className="flex items-center flex-shrink-0">
             <button
               onClick={onOpenBooking}
-              className="px-4 sm:px-5 py-2 rounded-full bg-[#141413] hover:bg-[#8F7238] text-[#FAF8F5] font-sans font-semibold text-[10px] sm:text-[11px] uppercase tracking-wider transition-all duration-300 shadow-sm flex items-center gap-1.5 active:scale-95"
+              className="px-3 sm:px-5 py-1.5 sm:py-2 rounded-full bg-[#141413] hover:bg-[#8F7238] text-[#FAF8F5] font-sans font-semibold text-[10px] sm:text-xs uppercase tracking-wider transition-all duration-300 shadow-sm flex items-center gap-1 active:scale-95 whitespace-nowrap"
             >
-              <Calendar className="w-3.5 h-3.5 text-[#C5A059]" />
+              <Calendar className="w-3 h-3 text-[#C5A059]" />
               <span>Book</span>
             </button>
           </div>
@@ -61,7 +61,7 @@ export default function Navbar({ onOpenBooking }) {
 
       {/* Luxury Full Drawer Menu */}
       <div
-        className={`fixed inset-0 z-50 bg-[#FAF8F5]/98 backdrop-blur-2xl transition-all duration-400 flex flex-col justify-between p-6 sm:p-10 ${
+        className={`fixed inset-0 z-50 bg-[#FAF8F5]/98 backdrop-blur-2xl transition-all duration-300 flex flex-col justify-between p-6 sm:p-10 ${
           mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
       >
@@ -86,41 +86,41 @@ export default function Navbar({ onOpenBooking }) {
         </div>
 
         {/* Navigation Links */}
-        <div className="flex flex-col gap-6 py-8 max-w-4xl mx-auto w-full">
+        <div className="flex flex-col gap-5 py-6 max-w-4xl mx-auto w-full">
           <a
             href="#features"
             onClick={() => setMobileMenuOpen(false)}
-            className="flex items-center justify-between font-serif text-2xl sm:text-3xl text-[#141413] hover:text-[#8F7238] transition-colors py-2 border-b border-black/5"
+            className="flex items-center justify-between font-serif text-xl sm:text-3xl text-[#141413] hover:text-[#8F7238] transition-colors py-2 border-b border-black/5"
           >
             <span>01 / Frame Anatomy</span>
-            <Layers className="w-5 h-5 text-[#C5A059]" />
+            <Layers className="w-4 h-4 text-[#C5A059]" />
           </a>
 
           <a
             href="#collection"
             onClick={() => setMobileMenuOpen(false)}
-            className="flex items-center justify-between font-serif text-2xl sm:text-3xl text-[#141413] hover:text-[#8F7238] transition-colors py-2 border-b border-black/5"
+            className="flex items-center justify-between font-serif text-xl sm:text-3xl text-[#141413] hover:text-[#8F7238] transition-colors py-2 border-b border-black/5"
           >
             <span>02 / The 2026 Archive</span>
-            <Award className="w-5 h-5 text-[#C5A059]" />
+            <Award className="w-4 h-4 text-[#C5A059]" />
           </a>
 
           <a
             href="#brands"
             onClick={() => setMobileMenuOpen(false)}
-            className="flex items-center justify-between font-serif text-2xl sm:text-3xl text-[#141413] hover:text-[#8F7238] transition-colors py-2 border-b border-black/5"
+            className="flex items-center justify-between font-serif text-xl sm:text-3xl text-[#141413] hover:text-[#8F7238] transition-colors py-2 border-b border-black/5"
           >
             <span>03 / Authorized Brands</span>
-            <Sparkles className="w-5 h-5 text-[#C5A059]" />
+            <Sparkles className="w-4 h-4 text-[#C5A059]" />
           </a>
 
           <a
             href="#store"
             onClick={() => setMobileMenuOpen(false)}
-            className="flex items-center justify-between font-serif text-2xl sm:text-3xl text-[#141413] hover:text-[#8F7238] transition-colors py-2 border-b border-black/5"
+            className="flex items-center justify-between font-serif text-xl sm:text-3xl text-[#141413] hover:text-[#8F7238] transition-colors py-2 border-b border-black/5"
           >
             <span>04 / Flagship Store</span>
-            <MapPin className="w-5 h-5 text-[#C5A059]" />
+            <MapPin className="w-4 h-4 text-[#C5A059]" />
           </a>
         </div>
 
@@ -131,7 +131,7 @@ export default function Navbar({ onOpenBooking }) {
               setMobileMenuOpen(false);
               onOpenBooking();
             }}
-            className="w-full py-4 rounded-full bg-[#141413] hover:bg-[#8F7238] text-[#FAF8F5] font-sans font-semibold text-xs uppercase tracking-[0.2em] transition-colors shadow-md flex items-center justify-center gap-2"
+            className="w-full py-3.5 rounded-full bg-[#141413] hover:bg-[#8F7238] text-[#FAF8F5] font-sans font-bold text-xs uppercase tracking-[0.18em] transition-colors shadow-md flex items-center justify-center gap-2"
           >
             <Calendar className="w-4 h-4 text-[#C5A059]" />
             <span>Book In-Store Eye Checkup</span>
