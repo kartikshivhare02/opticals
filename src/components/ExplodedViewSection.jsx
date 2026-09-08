@@ -134,9 +134,9 @@ export default function ExplodedViewSection() {
     const st = ScrollTrigger.create({
       trigger: containerRef.current,
       start: 'top top',
-      end: '+=1800',
+      end: '+=1200',
       pin: true,
-      scrub: 0.35,
+      scrub: 0.4,
       anticipatePin: 1,
       onUpdate: (self) => {
         const targetFrame = Math.min(
@@ -159,27 +159,23 @@ export default function ExplodedViewSection() {
     };
   }, { scope: containerRef, dependencies: [renderFrame] });
 
-  // Touch & Swipe gestures for phone view
-  const handlePointerDown = (e) => {
+  // Desktop Mouse Scrub (does not block mobile scrolling)
+  const handleMouseDown = (e) => {
     isDraggingRef.current = true;
-    startXRef.current = e.clientX || (e.touches && e.touches[0].clientX) || 0;
+    startXRef.current = e.clientX;
     startFrameRef.current = frameIndexRef.current;
   };
 
-  const handlePointerMove = (e) => {
+  const handleMouseMove = (e) => {
     if (!isDraggingRef.current) return;
-    const clientX = e.clientX || (e.touches && e.touches[0].clientX) || 0;
-    const diffX = clientX - startXRef.current;
-    
-    // Sensitivity: 1 frame per 2.8px
-    const frameDelta = Math.floor(diffX / 2.8);
+    const diffX = e.clientX - startXRef.current;
+    const frameDelta = Math.floor(diffX / 3);
     const nextFrame = Math.max(0, Math.min(TOTAL_EXPLODED_FRAMES - 1, startFrameRef.current + frameDelta));
-    
     renderFrame(nextFrame);
     setScrollProgress(nextFrame / (TOTAL_EXPLODED_FRAMES - 1));
   };
 
-  const handlePointerUp = () => {
+  const handleMouseUp = () => {
     isDraggingRef.current = false;
   };
 
@@ -201,7 +197,7 @@ export default function ExplodedViewSection() {
     <section
       ref={containerRef}
       id="features"
-      className="relative w-full h-[100svh] overflow-hidden bg-[#FAF8F5] select-none flex flex-col justify-between p-4 sm:p-8 md:p-12 border-t border-black/5 touch-none"
+      className="relative w-full h-[100svh] overflow-hidden bg-[#FAF8F5] select-none flex flex-col justify-between p-4 sm:p-8 md:p-12 border-t border-black/5 touch-pan-y"
     >
       {/* Background Soft Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 sm:w-96 h-80 sm:h-96 rounded-full bg-gold-400/10 blur-3xl pointer-events-none" />
@@ -238,15 +234,13 @@ export default function ExplodedViewSection() {
         </div>
       </div>
 
-      {/* Center Interactive Exploded Canvas Stage with Touch/Swipe */}
+      {/* Center Interactive Exploded Canvas Stage with Desktop Scrub */}
       <div
-        onMouseDown={handlePointerDown}
-        onMouseMove={handlePointerMove}
-        onMouseUp={handlePointerUp}
-        onTouchStart={handlePointerDown}
-        onTouchMove={handlePointerMove}
-        onTouchEnd={handlePointerUp}
-        className="absolute inset-0 flex items-center justify-center cursor-ew-resize active:cursor-grabbing"
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseUp}
+        className="absolute inset-0 flex items-center justify-center cursor-ew-resize active:cursor-grabbing pointer-events-none sm:pointer-events-auto"
       >
         <canvas
           ref={canvasRef}
@@ -282,8 +276,8 @@ export default function ExplodedViewSection() {
 
           <div className="flex items-center justify-between pt-1.5 border-t border-black/5 font-sans text-[10px]">
             <span className="font-semibold text-[#141413]">{activeComponent.spec}</span>
-            <span className="text-[#8E867B] uppercase tracking-wider text-[9px] hidden sm:inline">Swipe horizontally to scrub</span>
-            <span className="text-[#8E867B] uppercase tracking-wider text-[9px] sm:hidden">Swipe to explore</span>
+            <span className="text-[#8E867B] uppercase tracking-wider text-[9px] hidden sm:inline">Drag to scrub anatomy</span>
+            <span className="text-[#8E867B] uppercase tracking-wider text-[9px] sm:hidden">Scroll to explore details</span>
           </div>
 
         </div>
