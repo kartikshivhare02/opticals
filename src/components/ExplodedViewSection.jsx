@@ -43,11 +43,10 @@ export default function ExplodedViewSection() {
     const imgW = img.naturalWidth || 1280;
     const imgH = img.naturalHeight || 720;
 
-    // Clear with clean transparency
+    // Clear transparent
     ctx.clearRect(0, 0, width, height);
 
-    // Responsive Mobile-First Scaling:
-    // On mobile portrait (e.g. 430x932), scale up nicely so the glasses fill the safe center area prominently
+    // Responsive Mobile-First Scaling
     const isMobile = width < 768;
     const baseScale = Math.min(width / imgW, height / imgH);
     const scale = isMobile ? (width / imgW) * 1.35 : baseScale * 1.18;
@@ -133,20 +132,20 @@ export default function ExplodedViewSection() {
       id="features"
       className="relative w-full h-[100svh] overflow-hidden bg-[#FDFBF7] select-none flex flex-col justify-between p-4 sm:p-8 md:p-12 border-t border-black/5"
     >
-      {/* Seamless Minimalist Section Title */}
+      {/* Section Title */}
       <div className="relative z-20 flex flex-col items-center text-center max-w-xl mx-auto pt-4 sm:pt-6 pointer-events-none">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full gold-badge-light mb-1.5 sm:mb-2">
+        <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full gold-badge-light mb-1.5 sm:mb-2 shadow-sm">
           <Layers className="w-3 h-3 text-[#B89758]" />
-          <span className="font-sans text-[9px] sm:text-[10px] tracking-[0.25em] text-[#8F7238] uppercase font-medium">
-            Structural Anatomy
+          <span className="font-sans text-[10px] tracking-wider text-[#8F7238] uppercase font-bold">
+            Built for Durability & Daily Comfort
           </span>
         </div>
         <h2 className="font-display text-2xl sm:text-4xl font-bold uppercase text-[#1A1918] tracking-wide leading-tight">
-          Precision <span className="font-serif italic font-normal text-[#96783C]">Deconstructed</span>
+          Precision In <span className="font-serif italic font-normal text-[#96783C]">Every Detail</span>
         </h2>
       </div>
 
-      {/* Seamless Product Canvas with Multiply Blend & Edge Softening */}
+      {/* Seamless Product Canvas with Multiply Blend */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <canvas
           ref={canvasRef}
@@ -160,31 +159,31 @@ export default function ExplodedViewSection() {
         />
       </div>
 
-      {/* Mobile-Friendly Floating Technical Callouts */}
+      {/* Clear Indian-Friendly Feature Labels */}
       <div className="relative z-20 max-w-5xl mx-auto w-full flex flex-col sm:flex-row justify-between items-center sm:items-end gap-3 sm:gap-6 pb-4 sm:pb-6 pointer-events-none text-center sm:text-left">
         
-        {/* Left Callout (Phase 01) */}
+        {/* Left Feature */}
         <div
           className={`transition-all duration-700 ease-out max-w-xs ${
             isPhase1
               ? 'opacity-100 translate-y-0 scale-100'
               : isPhase2
-              ? 'opacity-75 translate-y-0 scale-98'
+              ? 'opacity-80 translate-y-0 scale-98'
               : 'opacity-30 translate-y-2 scale-95'
           }`}
         >
-          <span className="font-mono text-[9px] text-[#8F7238] uppercase tracking-[0.25em] block mb-0.5">
-            01 / Monocoque Frame
+          <span className="font-sans text-[10px] text-[#8F7238] uppercase tracking-wider font-bold block mb-0.5">
+            01 / Flexible Titanium Frame
           </span>
-          <h3 className="font-display text-sm sm:text-base font-bold text-[#1A1918] uppercase">
-            Japanese Beta-Titanium
+          <h3 className="font-sans text-sm sm:text-base font-bold text-[#1A1918]">
+            Lightweight & Unbreakable Alloy
           </h3>
-          <p className="font-sans text-[11px] text-[#736E65] font-light leading-snug mt-0.5">
-            0.02mm CNC milled chassis for featherweight 14.8g anatomical balance.
+          <p className="font-sans text-xs text-[#736E65] font-normal leading-snug mt-0.5">
+            Only 14.8g. Crafted to fit Indian facial contours comfortably without slipping or pinching.
           </p>
         </div>
 
-        {/* Right Callout (Phase 02 / 03) */}
+        {/* Right Feature */}
         <div
           className={`transition-all duration-700 ease-out max-w-xs sm:text-right ${
             isPhase3
@@ -194,14 +193,14 @@ export default function ExplodedViewSection() {
               : 'opacity-30 translate-y-2 scale-95'
           }`}
         >
-          <span className="font-mono text-[9px] text-[#8F7238] uppercase tracking-[0.25em] block mb-0.5">
-            02 / Optical & Hinge Array
+          <span className="font-sans text-[10px] text-[#8F7238] uppercase tracking-wider font-bold block mb-0.5">
+            02 / Screen & Driving Lenses
           </span>
-          <h3 className="font-display text-sm sm:text-base font-bold text-[#1A1918] uppercase">
-            Zeiss Diamond Optics
+          <h3 className="font-sans text-sm sm:text-base font-bold text-[#1A1918]">
+            Blue-Cut Anti-Glare Optics
           </h3>
-          <p className="font-sans text-[11px] text-[#736E65] font-light leading-snug mt-0.5">
-            9-layer anti-reflective crystal seal & 5-barrel zero-play micro hinges.
+          <p className="font-sans text-xs text-[#736E65] font-normal leading-snug mt-0.5">
+            Scratch-resistant lenses that protect eyes from screen fatigue and nighttime car headlights.
           </p>
         </div>
 
