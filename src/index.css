@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-gold: #B89758;
+    --color-gold-dark: #8F7238;
+    --color-bg: #FDFBF7;
+    --color-surface: #FFFFFF;
+    --color-text: #1A1918;
+    --color-muted: #736E65;
+  }
+
+  * {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: #FDFBF7;
+    color: #1A1918;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* Custom minimal light scrollbar */
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #F8F6F0;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #D8D2C6;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #B89758;
+  }
+}
+
+@layer utilities {
+  .text-luxury-gold {
+    color: #96783C;
+  }
+  .bg-luxury-gold {
+    background: linear-gradient(135deg, #C5A880 0%, #B89758 50%, #8F7238 100%);
+  }
+  .border-luxury-hairline {
+    border-color: rgba(26, 25, 24, 0.08);
+  }
+}
+
+/* Light Glassmorphism */
+.glass-pill-light {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(184, 151, 88, 0.25);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.glass-panel-light {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(26, 25, 24, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+}
+
+.gold-badge-light {
+  background: rgba(184, 151, 88, 0.08);
+  border: 1px solid rgba(184, 151, 88, 0.3);
+  color: #8F7238;
+}
+
+@keyframes subtle-fade {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: subtle-fade 0.5s ease-out forwards;
+}

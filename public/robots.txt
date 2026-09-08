@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jasleenopticals.com/sitemap.xml
